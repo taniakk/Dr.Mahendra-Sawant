@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Sawant's Diabetes Care Center | Senior Diabetologist Mumbai</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        royalBlue: '#0A2540',
+                        deepNavy: '#051329',
+                        brightBlue: '#0066FF',
+                        accentSky: '#00D4FF',
+                        softBlueBg: '#F4F8FC',
+                        cardLight: '#FFFFFF',
+                        borderBlue: '#E2EDF8'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        .blue-gradient-text {
+            background: linear-gradient(135deg, #0066FF 0%, #0A2540 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-bg-pattern {
+            background-color: #0A2540;
+            background-image: radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.15) 0%, transparent 40%),
+                              radial-gradient(circle at 20% 80%, rgba(0, 102, 255, 0.2) 0%, transparent 50%);
+        }
+        .glass-card-light {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 font-sans antialiased selection:bg-brightBlue selection:text-white">
+
+    <!-- 1. Top Announcement / Emergency Bar -->
+    <div class="bg-royalBlue text-white text-[11px] font-medium py-2 px-4 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-accentSky animate-pulse"></span>
+                <span>Prof. Dr. Mahendra Y. Sawant — Senior Diabetologist & General Physician (31+ Years Exp)</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="tel:+919833206879" class="hover:text-accentSky transition-colors">📞 +91 98332 06879</a>
+                <span class="hidden md:inline text-slate-400">|</span>
+                <span class="hidden md:inline text-slate-300">Borivali East, Mumbai</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Sticky Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-borderBlue shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-royalBlue to-brightBlue flex items-center justify-center text-white font-bold text-2xl shadow-md shadow-brightBlue/20">
+                    S
+                </div>
+                <div>
+                    <span class="font-serif font-bold text-xl text-royalBlue tracking-tight block leading-none">Dr. Sawant's</span>
+                    <span class="text-[10px] uppercase tracking-widest text-brightBlue font-bold block mt-1">Diabetes Care Center</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-wider text-slate-600">
+                <a href="#about" class="hover:text-brightBlue transition-colors">About Doctor</a>
+                <a href="#services" class="hover:text-brightBlue transition-colors">Services</a>
+                <a href="#cgm" class="hover:text-brightBlue transition-colors">CGM Sensor Care</a>
+                <a href="#location" class="hover:text-brightBlue transition-colors">Clinic Location</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-3">
+                <a href="tel:+919833206879" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-borderBlue bg-softBlueBg text-royalBlue text-xs font-bold hover:bg-white transition-all">
+                    <span>📞</span> Call Clinic
+                </a>
+                <a href="#booking" class="px-5 py-2.5 rounded-xl bg-brightBlue text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-brightBlue/25 hover:bg-royalBlue transition-all">
+                    Book Appointment
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. Hero Section (Premium Dark Blue Background with Crisp White Text) -->
+    <section class="hero-bg-pattern text-white py-20 lg:py-28 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-7 space-y-8" data-aos="fade-right" data-aos-duration="1000">
+                    
+                    <div class="inline-flex items-center gap-3 px-4 py-2 bg-white/10 border border-white/20 rounded-full backdrop-blur-md">
+                        <span class="w-2 h-2 rounded-full bg-accentSky"></span>
+                        <span class="text-xs font-semibold uppercase tracking-widest text-accentSky">
+                            Senior Diabetologist • 31+ Years Clinical Practice
+                        </span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-light leading-tight">
+                        Advanced Diabetes Care <br />
+                        <span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-accentSky via-white to-sky-200">
+                            & Organ Preservation
+                        </span>
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg font-light leading-relaxed max-w-2xl">
+                        Providing comprehensive, evidence-based diabetology care in Borivali East, Mumbai. Focused on continuous glucose monitoring, diabetic neuropathy treatment, foot preservation, and kidney protection.
+                    </p>
+
+                    <!-- Fast Facts -->
+                    <div class="grid grid-cols-3 gap-4 pt-2">
+                        <div class="p-4 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm">
+                            <span class="text-2xl font-bold text-accentSky block">31+ Yrs</span>
+                            <span class="text-[11px] text-slate-300 uppercase tracking-wider">Clinical Exp</span>
+                        </div>
+                        <div class="p-4 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm">
+                            <span class="text-2xl font-bold text-white block">24/7 CGM</span>
+                            <span class="text-[11px] text-slate-300 uppercase tracking-wider">Glucose Tech</span>
+                        </div>
+                        <div class="p-4 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm">
+                            <span class="text-2xl font-bold text-accentSky block">U.K.</span>
+                            <span class="text-[11px] text-slate-300 uppercase tracking-wider">Fellowship</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#booking" class="px-8 py-4 bg-brightBlue text-white font-bold text-xs uppercase tracking-widest rounded-xl shadow-xl shadow-brightBlue/30 hover:bg-white hover:text-royalBlue transition-all">
+                            Book Glycemic Consultation
+                        </a>
+                        <a href="tel:+919833206879" class="px-8 py-4 border border-white/30 text-white font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-white/10 transition-all">
+                            Call Direct
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Doctor Showcase Card -->
+                <div class="lg:col-span-5" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="bg-white text-slate-900 p-6 sm:p-8 rounded-3xl shadow-2xl border border-borderBlue relative">
+                        
+                        <div class="absolute -top-3 right-6 px-4 py-1.5 bg-royalBlue text-white text-[10px] font-bold uppercase tracking-widest rounded-full shadow-lg">
+                            Fellowship (UK)
+                        </div>
+
+                        <!-- Doctor Portrait -->
+                        <div class="relative w-full h-80 sm:h-96 rounded-2xl overflow-hidden mb-6 bg-softBlueBg border border-borderBlue">
+                            <img 
+                                src="/images/Dr.Sawant.jpeg" 
+                                alt="Prof. Dr. Mahendra Y. Sawant" 
+                                class="w-full h-full object-cover object-top"
+                                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800';"
+                            />
+                            <div class="absolute inset-0 bg-gradient-to-t from-royalBlue/80 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4 text-center text-white">
+                                <h3 class="font-serif text-xl font-bold">Prof. Dr. Mahendra Y. Sawant</h3>
+                                <p class="text-xs text-accentSky font-medium mt-0.5">Senior Diabetologist & Physician</p>
+                            </div>
+                        </div>
+
+                        <!-- Qualifications -->
+                        <div class="text-center space-y-2">
+                            <span class="inline-block px-3 py-1 bg-softBlueBg text-royalBlue text-xs font-bold rounded-lg border border-borderBlue">
+                                M.B.B.S. | M.D. | M.M.Sc | Fellowship (U.K.)
+                            </span>
+                            <p class="text-xs text-slate-500 pt-2">
+                                Reg No: 71206 (Maharashtra Medical Council)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. About Doctor Section (Crisp White Background with Soft Blue Cards) -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6" data-aos="fade-up">
+                    <span class="text-brightBlue font-bold text-xs uppercase tracking-widest">About the Specialist</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-royalBlue leading-tight">
+                        31+ Years of Clinical Dedication in Diabetology
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Prof. Dr. Mahendra Y. Sawant is a senior consultant diabetologist practicing in Borivali East, Mumbai. Trained in the United Kingdom, Dr. Sawant applies clinical precision to help patients control blood glucose levels, prevent microvascular damage, and minimize long-term organ complications.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="p-5 bg-softBlueBg rounded-2xl border border-borderBlue">
+                            <span class="text-3xl font-serif font-bold text-royalBlue block">31+</span>
+                            <span class="text-xs text-slate-600 mt-1 block">Years Active Practice</span>
+                        </div>
+                        <div class="p-5 bg-softBlueBg rounded-2xl border border-borderBlue">
+                            <span class="text-3xl font-serif font-bold text-brightBlue block">U.K.</span>
+                            <span class="text-xs text-slate-600 mt-1 block">Fellowship Trained</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6 bg-white rounded-2xl border border-borderBlue shadow-sm hover:shadow-md transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-brightBlue/10 text-brightBlue flex items-center justify-center font-bold mb-4">01</div>
+                        <h3 class="font-serif text-lg font-bold text-royalBlue mb-2">Glycemic Control</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Customized insulin titration and modern oral hypoglycemic agent regimens.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-2xl border border-borderBlue shadow-sm hover:shadow-md transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-brightBlue/10 text-brightBlue flex items-center justify-center font-bold mb-4">02</div>
+                        <h3 class="font-serif text-lg font-bold text-royalBlue mb-2">Nerve Care</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Early diagnostic evaluation for diabetic peripheral neuropathy and sensory loss.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-2xl border border-borderBlue shadow-sm hover:shadow-md transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-brightBlue/10 text-brightBlue flex items-center justify-center font-bold mb-4">03</div>
+                        <h3 class="font-serif text-lg font-bold text-royalBlue mb-2">Foot Preservation</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Preventative diabetic foot care and non-healing ulcer assessment.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-2xl border border-borderBlue shadow-sm hover:shadow-md transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-brightBlue/10 text-brightBlue flex items-center justify-center font-bold mb-4">04</div>
+                        <h3 class="font-serif text-lg font-bold text-royalBlue mb-2">Renal Shield</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Early monitoring of microalbuminuria to protect long-term kidney function.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Clinical Services (Soft Blue Background with White Elevation Cards) -->
+    <section id="services" class="py-20 bg-softBlueBg border-y border-borderBlue">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-brightBlue font-bold text-xs uppercase tracking-widest">Medical Specialties</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-royalBlue mt-2">Core Clinical Services</h2>
+                <p class="text-slate-600 text-xs sm:text-sm mt-3">Targeted medical management designed for comprehensive diabetes care.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="p-8 bg-white border border-borderBlue rounded-3xl shadow-sm hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 rounded-2xl bg-softBlueBg text-brightBlue flex items-center justify-center text-2xl mb-6 group-hover:bg-brightBlue group-hover:text-white transition-all">
+                        🩺
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-royalBlue mb-3">Diabetic Neuropathy Management</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                        Specialized assessment and medical intervention for burning sensations, numbness, and nerve pain caused by prolonged high blood glucose levels.
+                    </p>
+                    <a href="#booking" class="text-xs font-bold text-brightBlue uppercase tracking-wider hover:text-royalBlue">Schedule Assessment →</a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="p-8 bg-white border border-borderBlue rounded-3xl shadow-sm hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 rounded-2xl bg-softBlueBg text-brightBlue flex items-center justify-center text-2xl mb-6 group-hover:bg-brightBlue group-hover:text-white transition-all">
+                        🦶
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-royalBlue mb-3">Diabetic Foot Care & Ulcer Prevention</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                        Comprehensive foot examinations, peripheral circulation evaluation, and wound management protocols aimed at limb preservation.
+                    </p>
+                    <a href="#booking" class="text-xs font-bold text-brightBlue uppercase tracking-wider hover:text-royalBlue">Schedule Assessment →</a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="p-8 bg-white border border-borderBlue rounded-3xl shadow-sm hover:shadow-xl transition-all group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 rounded-2xl bg-softBlueBg text-brightBlue flex items-center justify-center text-2xl mb-6 group-hover:bg-brightBlue group-hover:text-white transition-all">
+                        🫘
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-royalBlue mb-3">Diabetic Nephropathy & Kidney Protection</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-6">
+                        Proactive screening for proteinuria and kidney stress to prevent nephropathy progression and preserve renal efficiency.
+                    </p>
+                    <a href="#booking" class="text-xs font-bold text-brightBlue uppercase tracking-wider hover:text-royalBlue">Schedule Assessment →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Technology Feature: Continuous Glucose Monitoring (Royal Blue Card) -->
+    <section id="cgm" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-royalBlue rounded-3xl text-white p-8 sm:p-12 shadow-2xl relative overflow-hidden" data-aos="zoom-in">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="lg:col-span-7 space-y-6">
+                        <span class="inline-block px-3 py-1 bg-brightBlue/30 text-accentSky border border-accentSky/30 rounded-md text-xs font-bold uppercase tracking-widest">
+                            Advanced Glycemic Tech
+                        </span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold leading-tight">
+                            Continuous Glucose Monitoring (CGM) Sensor Therapy
+                        </h2>
+                        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                            Continuous Glucose Monitoring allows 24/7 real-time tracking of blood sugar trends without repeated fingerpricks. Sensors map glucose fluctuations after meals, during sleep, and exercise to fine-tune therapy.
+                        </p>
+
+                        <div class="space-y-3 pt-2">
+                            <div class="flex items-center gap-3 text-xs text-slate-200">
+                                <span class="w-5 h-5 rounded-full bg-accentSky/20 text-accentSky flex items-center justify-center font-bold text-[10px]">✓</span>
+                                <span>Tracks Time-In-Range (TIR) for optimal glycemic control</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-slate-200">
+                                <span class="w-5 h-5 rounded-full bg-accentSky/20 text-accentSky flex items-center justify-center font-bold text-[10px]">✓</span>
+                                <span>Identifies silent nocturnal hypoglycemia (low blood sugar during sleep)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Sensor Reading Box -->
+                    <div class="lg:col-span-5 bg-white text-slate-900 p-6 rounded-2xl shadow-xl border border-borderBlue">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-bold uppercase text-royalBlue">CGM Live Sensor Overview</span>
+                            <span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded-full">Target: 70 - 140 mg/dL</span>
+                        </div>
+                        
+                        <div class="p-4 bg-softBlueBg rounded-xl border border-borderBlue space-y-3 text-center">
+                            <span class="text-xs text-slate-500 uppercase tracking-wider block">Real-time Glucose Level</span>
+                            <span class="text-4xl font-bold text-royalBlue block">118 <span class="text-xs text-slate-500 font-normal">mg/dL</span></span>
+                            <span class="inline-block px-3 py-1 bg-brightBlue/10 text-brightBlue text-xs font-bold rounded-md">↗ Trend: Stable</span>
+                        </div>
+
+                        <p class="text-[11px] text-slate-500 text-center mt-4">
+                            Sensor data integrated directly into Dr. Sawant's clinical assessment for tailored insulin adjustment.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Appointment Booking Form -->
+    <section id="booking" class="py-20 bg-softBlueBg border-t border-borderBlue">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5 space-y-6" data-aos="fade-right">
+                    <span class="text-brightBlue font-bold text-xs uppercase tracking-widest">Schedule Consultation</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-royalBlue">
+                        Book Your OPD Appointment
+                    </h2>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        Consult with Prof. Dr. Mahendra Y. Sawant at Dr. Sawant's Diabetes Care Center in Borivali East, Mumbai.
+                    </p>
+
+                    <div class="p-6 bg-white rounded-2xl border border-borderBlue space-y-4 shadow-sm">
+                        <div class="flex justify-between text-xs pb-3 border-b border-borderBlue">
+                            <span class="font-bold text-royalBlue">Consultation Fee:</span>
+                            <span class="text-brightBlue font-bold">₹ 1,200</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <span class="font-bold text-royalBlue">OPD Timings:</span>
+                            <span class="text-slate-600 text-right">10:00 AM - 2:00 PM<br />6:00 PM - 10:00 PM</span>
+                        </div>
+                        <div class="flex justify-between text-xs pt-3 border-t border-borderBlue">
+                            <span class="font-bold text-royalBlue">Working Days:</span>
+                            <span class="text-slate-600">Monday to Saturday (Sunday Closed)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-white p-8 rounded-3xl border border-borderBlue shadow-xl" data-aos="fade-left">
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Appointment request received! The clinic desk will contact you to confirm.');">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs uppercase font-bold text-slate-600 mb-1">Full Name *</label>
+                                <input type="text" required placeholder="Patient Name" class="w-full px-4 py-3 bg-softBlueBg border border-borderBlue rounded-xl text-xs text-slate-800 focus:outline-none focus:border-brightBlue">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase font-bold text-slate-600 mb-1">Phone Number *</label>
+                                <input type="tel" required placeholder="+91 98332 06879" class="w-full px-4 py-3 bg-softBlueBg border border-borderBlue rounded-xl text-xs text-slate-800 focus:outline-none focus:border-brightBlue">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs uppercase font-bold text-slate-600 mb-1">Preferred Date</label>
+                                <input type="date" class="w-full px-4 py-3 bg-softBlueBg border border-borderBlue rounded-xl text-xs text-slate-800 focus:outline-none focus:border-brightBlue">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase font-bold text-slate-600 mb-1">Primary Concern</label>
+                                <select class="w-full px-4 py-3 bg-softBlueBg border border-borderBlue rounded-xl text-xs text-slate-800 focus:outline-none focus:border-brightBlue">
+                                    <option>High Blood Glucose / Diabetes Control</option>
+                                    <option>Numbness / Burning Feet (Neuropathy)</option>
+                                    <option>Foot Care / Ulcer Management</option>
+                                    <option>Continuous Glucose Monitoring (CGM)</option>
+                                    <option>General Physician Consultation</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-slate-600 mb-1">Message / Medical Notes</label>
+                            <textarea rows="3" placeholder="Specify any current medications or HbA1c details..." class="w-full px-4 py-3 bg-softBlueBg border border-borderBlue rounded-xl text-xs text-slate-800 focus:outline-none focus:border-brightBlue"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-brightBlue text-white font-bold text-xs uppercase tracking-widest rounded-xl shadow-lg shadow-brightBlue/30 hover:bg-royalBlue transition-all">
+                            Submit Consultation Request
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Location & Map Section -->
+    <section id="location" class="py-20 bg-white border-t border-borderBlue">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <div class="lg:col-span-6 space-y-6" data-aos="fade-up">
+                    <span class="text-brightBlue font-bold text-xs uppercase tracking-widest">Clinic Location</span>
+                    <h2 class="font-serif text-3xl font-bold text-royalBlue">Dr. Sawant's Diabetes Care Center</h2>
+                    
+                    <div class="space-y-4 text-xs text-slate-600">
+                        <div class="flex items-start gap-3 p-4 bg-softBlueBg rounded-xl border border-borderBlue">
+                            <span class="text-brightBlue font-bold text-base">📍</span>
+                            <div>
+                                <p class="font-bold text-royalBlue">Full Address:</p>
+                                <p class="mt-0.5 leading-relaxed">Flat No. 42, 14th Floor, Saisadan CHSL, Ashokvan, Shiv-Vallabh Road, Near Universal High School, Borivali East, Mumbai, Maharashtra 400066</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-4 bg-softBlueBg rounded-xl border border-borderBlue">
+                            <span class="text-brightBlue font-bold text-base">🕒</span>
+                            <div>
+                                <p class="font-bold text-royalBlue">OPD Hours:</p>
+                                <p class="mt-0.5">Monday – Saturday: 10:00 AM - 02:00 PM & 06:00 PM - 10:00 PM</p>
+                                <p class="text-brightBlue font-semibold mt-1">Sunday: Closed</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-4 bg-softBlueBg rounded-xl border border-borderBlue">
+                            <span class="text-brightBlue font-bold text-base">📞</span>
+                            <div>
+                                <p class="font-bold text-royalBlue">Direct Phone:</p>
+                                <p class="mt-0.5">+91 98332 06879</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 h-96 rounded-3xl overflow-hidden border border-borderBlue shadow-lg bg-softBlueBg" data-aos="fade-up" data-aos-delay="200">
+                    <iframe 
+                        title="Dr Sawant Clinic Map"
+                        class="w-full h-full" 
+                        src="https://maps.google.com/maps?q=Ashokvan+Shiv+Vallabh+Road+Borivali+East+Mumbai&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        frameborder="0" 
+                        scrolling="no">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Premium Footer -->
+    <footer class="bg-deepNavy text-white py-12 border-t border-white/10 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div>
+                <p class="font-bold text-white text-sm">Dr. Sawant's Diabetes Care Center</p>
+                <p class="text-slate-400 mt-1">Prof. Dr. Mahendra Y. Sawant • M.B.B.S., M.D., M.M.Sc, Fellowship (U.K.)</p>
+                <p class="text-slate-500 text-[10px] mt-2">© All rights reserved. Registered with Maharashtra Medical Council.</p>
+            </div>
+
+            <div class="flex items-center gap-6 text-slate-300 font-semibold">
+                <a href="#about" class="hover:text-accentSky transition-colors">About</a>
+                <a href="#services" class="hover:text-accentSky transition-colors">Services</a>
+                <a href="#cgm" class="hover:text-accentSky transition-colors">CGM Tech</a>
+                <a href="#booking" class="hover:text-accentSky transition-colors">Appointment</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS (Animate On Scroll) JS Script Initialization -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
