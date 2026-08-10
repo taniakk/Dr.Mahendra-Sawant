@@ -17,9 +17,19 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Swiper.js CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script>
     tailwind.config = {
       theme: {
+        screens: {
+          'xs': '400px',
+          'sm': '640px',
+          'md': '768px',
+          'lg': '1024px',
+          'xl': '1280px',
+          '2xl': '1536px',
+        },
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
@@ -52,6 +62,12 @@
 
   <!-- Custom CSS for Enlarged Reference Diamond Frame & 3D Background Animations -->
   <style>
+    /* Prevent horizontal overflow on mobile screens */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     /* Base Scene Perspective */
     .hero-container {
       perspective: 1200px;
@@ -430,6 +446,33 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
+    /* Swiper Slider Custom Styling */
+    .hero-swiper .swiper-pagination-bullet-active {
+      background: #1d4ed8 !important; /* Brand Blue */
+      width: 24px;
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+    .hero-swiper .swiper-pagination-bullet {
+      background: #94a3b8;
+      opacity: 1;
+    }
+    .hero-swiper .swiper-button-prev,
+    .hero-swiper .swiper-button-next {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .hero-swiper .swiper-button-prev::after,
+    .hero-swiper .swiper-button-next::after {
+      font-size: 16px !important;
+      font-weight: bold;
+      color: #fff;
+    }
   </style>
 
   
@@ -481,7 +524,7 @@
       <a href="#home" class="flex items-center group">
         <div class="relative flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
           <img src="/images/dr.Msawantlogo.png" alt="Dr. Sawant's Diabetic Care Centre Logo"
-            class="h-20 sm:h-24 lg:h-28 w-auto max-w-[220px] sm:max-w-[280px] lg:max-w-[340px] object-contain mix-blend-multiply filter drop-shadow-sm" />
+            class="h-16 xs:h-20 sm:h-24 lg:h-28 w-auto max-w-[150px] xs:max-w-[220px] sm:max-w-[280px] lg:max-w-[340px] object-contain mix-blend-multiply filter drop-shadow-sm" />
         </div>
       </a>
 
@@ -562,123 +605,264 @@
         }
       });
     });
+
+    // Close menu on scroll to prevent layout blocking
+    window.addEventListener('scroll', () => {
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        toggleMenu();
+      }
+    }, { passive: true });
   </script>
 
 
-<!-- HERO SECTION -->
-<section id="about" class="bg-gradient-to-b from-slate-50 via-white to-blue-50/30 py-12 sm:py-16 md:py-24 relative overflow-hidden hero-container">
+<!-- HERO SECTION WITH BACKGROUND SLIDER -->
+<section id="home" class="relative overflow-hidden hero-container min-h-screen flex items-center bg-slate-950">
 
-  <!-- Interactive Dynamic Canvas Particle Network Background -->
-  <canvas id="hero-particle-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+  <!-- Background Swiper Slider -->
+  <div class="swiper bg-swiper absolute inset-0 w-full h-full z-0">
+    <div class="swiper-wrapper">
+      
+      <!-- Slide 1: Dr. Sawant -->
+      <div class="swiper-slide relative">
+        <img src="/images/doctor.jpg" alt="Prof. Dr. Mahendra Yashwant Sawant" class="w-full h-full object-cover object-top" />
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/40"></div>
+      </div>
+      
+      <!-- Slide 2: Senior Care -->
+      <div class="swiper-slide relative">
+        <img src="/images/Seniorscare.jpg" alt="Special Geriatric Care" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/40"></div>
+      </div>
+      
+      <!-- Slide 3: Kidney Disease Care -->
+      <div class="swiper-slide relative">
+        <img src="/images/dr.sawantslider2.jpg" alt="Diabetic Kidney Disease Care" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/40"></div>
+      </div>
+      
+      <!-- Slide 4: Diabetes in Pregnancy -->
+      <div class="swiper-slide relative">
+        <img src="/images/diabetespregnency.jpg" alt="Diabetes in Pregnancy" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/40"></div>
+      </div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
+    </div>
 
-    <!-- Text Content Column -->
-    <div class="lg:col-span-7 space-y-5 sm:space-y-6 text-left">
+    <!-- Navigation Arrows -->
+    <button aria-label="Previous Slide" class="swiper-button-prev !hidden md:!flex !w-12 !h-12 !bg-slate-900/60 hover:!bg-emerald-600/80 !backdrop-blur-md !border !border-white/20 !rounded-full !text-white transition-all duration-300 after:!text-base after:!font-black shadow-lg after:!content-['\f053'] after:!font-['Font_Awesome_6_Free'] hover:scale-110 !left-6 z-30"></button>
+    <button aria-label="Next Slide" class="swiper-button-next !hidden md:!flex !w-12 !h-12 !bg-slate-900/60 hover:!bg-emerald-600/80 !backdrop-blur-md !border !border-white/20 !rounded-full !text-white transition-all duration-300 after:!text-base after:!font-black shadow-lg after:!content-['\f054'] after:!font-['Font_Awesome_6_Free'] hover:scale-110 !right-6 z-30"></button>
+  </div>
+
+  <!-- Interactive Canvas Particle Network Background -->
+  <canvas id="hero-particle-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-10"></canvas>
+
+  <!-- Foreground Content -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-20 w-full">
+
+    <div class="max-w-3xl space-y-5 sm:space-y-6 text-left">
 
       <!-- Badge with AOS -->
       <div
-        class="inline-flex items-center gap-2 bg-brand-lightBlue/80 backdrop-blur-md text-brand-blue px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full border border-brand-blue/20 font-semibold text-xs sm:text-sm shadow-sm"
+        class="inline-flex items-center gap-2 bg-slate-900/80 backdrop-blur-md text-emerald-300 px-3.5 py-1.5 sm:px-4 sm:py-1.5 rounded-full border border-emerald-500/30 font-semibold text-xs sm:text-sm shadow-lg shadow-black/50"
         data-aos="fade-right" data-aos-duration="800">
-        <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></span>
-        <span class="font-bold">Diabetes Care Expert</span>
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="font-bold text-white">Diabetes Care Expert</span>
       </div>
 
-      <!-- Main Heading with AOS -->
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight tracking-tight" data-aos="fade-right"
-        data-aos-delay="100" data-aos-duration="800">
-        Dedicated to <span class="premium-text-gradient">Diabetes Control</span> & Prevention
+      <!-- Main Heading with High-Contrast Drop Shadow -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]" 
+        data-aos="fade-right" data-aos-delay="100" data-aos-duration="800">
+        Dedicated to 
+        <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 bg-clip-text text-transparent filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+          Diabetes Control
+        </span> & Prevention
       </h1>
 
-      <!-- Paragraph with AOS -->
-      <p class="text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed font-medium" data-aos="fade-right" data-aos-delay="200"
-        data-aos-duration="800">
-        <strong class="text-brand-blue font-extrabold">Prof. Dr. Mahendra Yashwant Sawant</strong> is a renowned
-        Diabetologist, Sr. Consulting Physician, and Medicolegal Consultant in Mumbai, with <span
-          class="text-brand-green font-extrabold">over 37 years of medical practice (Since 1988)</span>. His life's
-        work is dedicated to providing compassionate and comprehensive medical care for patients dealing with diabetes
-        and endocrine disorders.
+      <!-- Shortened Paragraph -->
+      <p class="text-slate-100 text-sm sm:text-base lg:text-lg leading-relaxed font-normal drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]" 
+        data-aos="fade-right" data-aos-delay="200" data-aos-duration="800">
+        <strong class="text-white font-extrabold">Prof. Dr. Mahendra Yashwant Sawant</strong> brings 
+        <span class="text-emerald-400 font-extrabold">37+ years of clinical excellence</span> (since 1988) in advanced diabetes management, endocrine care, and medicolegal consultation in Mumbai.
       </p>
 
-      <!-- Bullet Highlights with Staggered AOS -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-2">
-        <div
-          class="flex items-center gap-3.5 bg-white/90 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-brand-blue/20"
-          data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="600">
-          <span
-            class="w-8 h-8 rounded-lg bg-brand-lightBlue flex items-center justify-center text-brand-blue shrink-0">
-            <i class="fa-solid fa-check text-sm font-black"></i>
-          </span>
-          <span class="font-bold text-slate-800 text-xs sm:text-sm">37+ Years Experience</span>
-        </div>
+      <!-- "Patients Trust Us" Feature Block -->
+      <div class="pt-2" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700">
+        <p class="text-xs uppercase tracking-wider text-emerald-400 font-bold mb-3 drop-shadow-sm flex items-center gap-2">
+          <i class="fa-solid fa-shield-halved text-emerald-400"></i> Why Patients Trust Us
+        </p>
 
-        <div
-          class="flex items-center gap-3.5 bg-white/90 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-brand-green/20"
-          data-aos="zoom-in-up" data-aos-delay="400" data-aos-duration="600">
-          <span
-            class="w-8 h-8 rounded-lg bg-brand-lightGreen flex items-center justify-center text-brand-green shrink-0">
-            <i class="fa-solid fa-check text-sm font-black"></i>
-          </span>
-          <span class="font-bold text-slate-800 text-xs sm:text-sm">UK Trained & Fellow</span>
-        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          
+          <!-- Card 1 -->
+          <div class="flex items-center gap-3.5 bg-slate-950/75 backdrop-blur-md p-3.5 rounded-2xl border border-white/15 shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-emerald-400/40">
+            <span class="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 shrink-0 shadow-inner">
+              <i class="fa-solid fa-user-doctor text-sm font-black"></i>
+            </span>
+            <div>
+              <h4 class="font-bold text-white text-xs sm:text-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">37+ Years Expertise</h4>
+              <p class="text-slate-300 text-[11px] sm:text-xs">Proven track record since 1988</p>
+            </div>
+          </div>
 
-        <div
-          class="flex items-center gap-3.5 bg-white/90 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-brand-blue/20"
-          data-aos="zoom-in-up" data-aos-delay="500" data-aos-duration="600">
-          <span
-            class="w-8 h-8 rounded-lg bg-brand-lightBlue flex items-center justify-center text-brand-blue shrink-0">
-            <i class="fa-solid fa-check text-sm font-black"></i>
-          </span>
-          <span class="font-bold text-slate-800 text-xs sm:text-sm">Medicolegal Consultant</span>
-        </div>
+          <!-- Card 2 -->
+          <div class="flex items-center gap-3.5 bg-slate-950/75 backdrop-blur-md p-3.5 rounded-2xl border border-white/15 shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-emerald-400/40">
+            <span class="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 shrink-0 shadow-inner">
+              <i class="fa-solid fa-graduation-cap text-sm font-black"></i>
+            </span>
+            <div>
+              <h4 class="font-bold text-white text-xs sm:text-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">UK Trained Fellow</h4>
+              <p class="text-slate-300 text-[11px] sm:text-xs">Global standards in clinical care</p>
+            </div>
+          </div>
 
-        <div
-          class="flex items-center gap-3.5 bg-white/90 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-brand-green/20"
-          data-aos="zoom-in-up" data-aos-delay="600" data-aos-duration="600">
-          <span
-            class="w-8 h-8 rounded-lg bg-brand-lightGreen flex items-center justify-center text-brand-green shrink-0">
-            <i class="fa-solid fa-check text-sm font-black"></i>
-          </span>
-          <span class="font-bold text-slate-800 text-xs sm:text-sm">Comprehensive Diabetes Care</span>
+          <!-- Card 3 -->
+          <div class="flex items-center gap-3.5 bg-slate-950/75 backdrop-blur-md p-3.5 rounded-2xl border border-white/15 shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-emerald-400/40">
+            <span class="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 shrink-0 shadow-inner">
+              <i class="fa-solid fa-heart-pulse text-sm font-black"></i>
+            </span>
+            <div>
+              <h4 class="font-bold text-white text-xs sm:text-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Personalized Care</h4>
+              <p class="text-slate-300 text-[11px] sm:text-xs">Tailored treatments for longevity</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="flex items-center gap-3.5 bg-slate-950/75 backdrop-blur-md p-3.5 rounded-2xl border border-white/15 shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:border-emerald-400/40">
+            <span class="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center text-emerald-400 shrink-0 shadow-inner">
+              <i class="fa-solid fa-scale-balanced text-sm font-black"></i>
+            </span>
+            <div>
+              <h4 class="font-bold text-white text-xs sm:text-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Medicolegal Expert</h4>
+              <p class="text-slate-300 text-[11px] sm:text-xs">Trusted medical & legal authority</p>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <!-- Action Buttons with AOS (Full Width Stack on Mobile) -->
-      <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4" data-aos="fade-up" data-aos-delay="700"
+      <!-- Action Buttons -->
+      <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4" data-aos="fade-up" data-aos-delay="500"
         data-aos-duration="800">
         <a href="#contact"
-          class="w-full sm:w-auto text-center bg-gradient-to-r from-brand-green to-emerald-600 hover:from-brand-greenHover hover:to-emerald-700 text-white font-extrabold px-8 py-3.5 sm:py-4 rounded-full shadow-lg shadow-brand-green/25 hover:shadow-xl hover:shadow-brand-green/45 transition-all duration-300 hover:-translate-y-0.5 transform active:scale-95 text-sm sm:text-base">
+          class="w-full sm:w-auto text-center bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-extrabold px-8 py-3.5 sm:py-4 rounded-full shadow-lg shadow-emerald-950/80 hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 transform active:scale-95 text-sm sm:text-base border border-emerald-400/30">
           Get In Touch
         </a>
         <a href="tel:+919833206879"
-          class="w-full sm:w-auto text-center justify-center bg-white/90 backdrop-blur-md text-brand-blue hover:bg-blue-50 font-extrabold px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 flex items-center gap-2 hover:-translate-y-0.5 shadow-sm border border-brand-blue/20 transform active:scale-95 text-sm sm:text-base">
-          <i class="fa-solid fa-phone"></i> Call Now
+          class="w-full sm:w-auto text-center justify-center bg-slate-900/80 backdrop-blur-md text-white hover:bg-slate-800 font-extrabold px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 flex items-center gap-2 hover:-translate-y-0.5 shadow-xl border border-white/20 transform active:scale-95 text-sm sm:text-base">
+          <i class="fa-solid fa-phone text-emerald-400"></i> Call Now
         </a>
       </div>
+
     </div>
 
-    <!-- RESPONSIVE CONTINUOUSLY MOVING DIAMOND FRAME WITH AOS -->
-    <div class="lg:col-span-5 flex justify-center items-center py-4 sm:py-8 relative" data-aos="zoom-in"
-      data-aos-delay="300" data-aos-duration="1000">
+  </div>
+</section>
 
-      <!-- Plus Grid Pattern Overlay behind Frame (Mobile Responsive Size) -->
-      <div class="absolute w-72 h-72 sm:w-96 sm:h-96 lg:w-[520px] lg:h-[520px] plus-pattern-bg pointer-events-none z-0"></div>
 
-      <!-- Reference Floating Diamond Container (Scaled smoothly across viewports) -->
-      <div class="reference-diamond-wrapper z-10 w-64 h-64 sm:w-80 sm:h-80 lg:w-[380px] lg:h-[380px] max-w-full">
+<!-- ABOUT SECTION -->
+<section id="about" class="py-20 bg-white relative overflow-hidden border-b border-slate-100">
+  <!-- Light Decorative Background Blurs -->
+  <div class="absolute -top-24 -left-24 w-96 h-96 bg-brand-lightBlue/50 rounded-full blur-3xl opacity-70 pointer-events-none"></div>
+  <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-brand-lightGreen/50 rounded-full blur-3xl opacity-70 pointer-events-none"></div>
 
-        <!-- Outer Thick Blue Diamond -->
-        <div class="outer-blue-diamond"></div>
-
-        <!-- Inner Dark Diamond Card Cutout -->
-        <div class="inner-diamond-card">
-          <img src="/images/dr.sawant2.jpeg" alt="Prof. Dr. Mahendra Yashwant Sawant" class="doctor-photo-upright w-full h-full object-cover" />
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Column: Doctor Portrait -->
+      <div class="lg:col-span-5 flex justify-center py-6">
+        <div class="relative w-80 sm:w-96 max-w-full" data-aos="fade-right" data-aos-duration="1000">
+          <!-- Grid Background Pattern -->
+          <div class="absolute -inset-6 opacity-30 pointer-events-none bg-[radial-gradient(#1d4ed8_1.5px,transparent_1.5px)] [background-size:16px_16px] rounded-3xl"></div>
+          
+          <!-- Animated Accent Ring -->
+          <div class="absolute -inset-1.5 bg-gradient-to-tr from-brand-blue via-emerald-400 to-brand-green rounded-[2.2rem] blur-md opacity-75 animate-pulse"></div>
+          
+          <!-- Photo Container -->
+          <div class="relative bg-white p-3 rounded-[2rem] shadow-2xl border border-slate-100">
+            <div class="relative w-full aspect-[4/5] rounded-[1.6rem] overflow-hidden bg-slate-900 group">
+              <img src="/images/Dr.Sawant.jpeg" alt="Prof. Dr. Mahendra Sawant Portrait" class="w-full h-full object-cover object-top -scale-x-100 transition-transform duration-700 ease-out group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+              
+              <!-- Experience Badge Overlay -->
+              <div class="absolute bottom-4 left-4 right-4 bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-xl text-white">
+                <span class="text-[10px] text-emerald-300 font-extrabold uppercase tracking-wider block">Diabetology & General Medicine</span>
+                <h4 class="text-sm font-bold mt-0.5">37+ Years of Clinical Practice</h4>
+              </div>
+            </div>
+          </div>
         </div>
-
       </div>
-
+      
+      <!-- Right Column: Professional Profile -->
+      <div class="lg:col-span-7 space-y-6" data-aos="fade-left" data-aos-duration="1000">
+        <!-- Section Tag -->
+        <span class="inline-flex items-center gap-2 bg-brand-lightBlue text-brand-blue px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase border border-brand-blue/20">
+          <i class="fa-solid fa-user-doctor text-xs"></i> Meet The Doctor
+        </span>
+        
+        <!-- Heading -->
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+          Prof. Dr. Mahendra <span class="premium-text-gradient">Yashwant Sawant</span>
+        </h2>
+        
+        <!-- Credentials List -->
+        <div class="flex flex-wrap gap-2 text-xs font-bold uppercase tracking-wider">
+          <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-md">M.B.B.S.</span>
+          <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-md">M.D.</span>
+          <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-md">M.M.Sc</span>
+          <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-md">Ph.D. (Diabetology)</span>
+          <span class="bg-brand-lightGreen text-brand-green px-3 py-1 rounded-md border border-brand-green/20">F.I.C.S.</span>
+          <span class="bg-brand-lightGreen text-brand-green px-3 py-1 rounded-md border border-brand-green/20">F.R.C.P. (U.K.)</span>
+        </div>
+        
+        <!-- Bio Description -->
+        <p class="text-slate-600 text-base sm:text-lg leading-relaxed font-medium">
+          Prof. Dr. Mahendra Yashwant Sawant is a distinguished name in the field of Diabetology and General Medicine in Mumbai. With a clinical journey spanning more than 37 years, Dr. Sawant has pioneered patient-centric protocols that focus not just on medication, but on lifestyle modification, early complication detection, and long-term diabetes reversal.
+        </p>
+        
+        <!-- Key Values / Checkpoints -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-brand-lightBlue text-brand-blue flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-check text-xs"></i></span>
+            <div>
+              <h4 class="font-extrabold text-slate-900 text-sm">International Training</h4>
+              <p class="text-xs text-slate-500 font-medium">Fellowships and advanced training from premier institutions in the United Kingdom.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-brand-lightGreen text-brand-green flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-check text-xs"></i></span>
+            <div>
+              <h4 class="font-extrabold text-slate-900 text-sm">Academic Legacy</h4>
+              <p class="text-xs text-slate-500 font-medium">Served as a Professor, guiding and mentoring the next generation of physicians.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-brand-lightGreen text-brand-green flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-check text-xs"></i></span>
+            <div>
+              <h4 class="font-extrabold text-slate-900 text-sm">Medicolegal Expertise</h4>
+              <p class="text-xs text-slate-500 font-medium">Respected advisor on complex legal, clinical, and regulatory medical cases.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-6 h-6 rounded-full bg-brand-lightBlue text-brand-blue flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-check text-xs"></i></span>
+            <div>
+              <h4 class="font-extrabold text-slate-900 text-sm">Holistic Wellness</h4>
+              <p class="text-xs text-slate-500 font-medium">Integrating medicine with nutrition and patient-focused lifestyle guidance.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Doctor Signature Quote -->
+        <div class="border-l-4 border-brand-green bg-brand-lightGreen/50 p-4 rounded-r-2xl">
+          <p class="text-slate-700 italic text-sm font-semibold">
+            "My mission is to empower individuals with diabetes to live full, healthy, and complication-free lives through scientific, evidence-based care."
+          </p>
+          <span class="block text-xs font-black text-slate-900 mt-2">— Prof. Dr. Mahendra Yashwant Sawant</span>
+        </div>
+        
+      </div>
+      
     </div>
-
   </div>
 </section>
 
@@ -837,7 +1021,7 @@
   </section>
 
 <!-- SERVICES / SPECIALTIES FLIP-CARD SECTION -->
-<section id="services" class="py-20 md:py-28 bg-gradient-to-b from-slate-50 via-white to-blue-50/20 relative overflow-hidden border-b border-slate-100">
+<section id="specialties" class="py-20 md:py-28 bg-gradient-to-b from-slate-50 via-white to-blue-50/20 relative overflow-hidden border-b border-slate-100">
 
   <!-- Subtle Ambient Background Glows -->
   <div class="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-brand-lightGreen/40 rounded-full blur-3xl pointer-events-none"></div>
@@ -1569,6 +1753,8 @@
   </a>
 
   <!-- REQUIRED JS AT THE BOTTOM OF YOUR HTML PAGE -->
+  <!-- Swiper.js JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
@@ -1675,14 +1861,134 @@
   });
 </script>
 
-<!-- hero section -->
-  <script>
-    AOS.init({
-      once: true, // Animation occurs only once while scrolling down
-      duration: 800,
-      easing: 'ease-out-cubic'
+<!-- hero swiper -->
+<script>
+  // Initialize AOS Library
+  AOS.init({
+    once: true,
+    duration: 800,
+    easing: 'ease-out-cubic'
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- 1. Background Swiper Initialization ---
+    const bgSwiper = new Swiper('.bg-swiper', {
+      loop: true,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      speed: 1200,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      // Navigation arrows enabled
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
     });
-  </script>
+
+    // --- 2. Interactive Canvas Particle Network ---
+    const canvas = document.getElementById('hero-particle-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    let particles = [];
+    const particleCount = 45; // Number of floating dots
+    const maxDistance = 110;  // Max distance to draw connecting line
+
+    function resizeCanvas() {
+      if (!canvas.parentElement) return;
+      canvas.width = canvas.parentElement.offsetWidth;
+      canvas.height = canvas.parentElement.offsetHeight;
+    }
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.radius = Math.random() * 2 + 1.5;
+        this.vx = (Math.random() - 0.5) * 0.6; // X velocity
+        this.vy = (Math.random() - 0.5) * 0.6; // Y velocity
+        this.color = Math.random() > 0.4 ? 'rgba(37, 99, 235, ' : 'rgba(16, 185, 129, ';
+        this.alpha = Math.random() * 0.5 + 0.3;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color + this.alpha + ')';
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = this.color + '0.8)';
+        ctx.fill();
+        ctx.shadowBlur = 0; // reset blur
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        // Bounce off canvas borders
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+    }
+
+    function initParticles() {
+      resizeCanvas();
+      particles = [];
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function connectParticles() {
+      for (let a = 0; a < particles.length; a++) {
+        for (let b = a + 1; b < particles.length; b++) {
+          const dx = particles[a].x - particles[b].x;
+          const dy = particles[a].y - particles[b].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < maxDistance) {
+            const opacity = (1 - dist / maxDistance) * 0.25;
+            ctx.beginPath();
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(particles[b].x, particles[b].y);
+            ctx.strokeStyle = `rgba(37, 99, 235, ${opacity})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      
+      connectParticles();
+      requestAnimationFrame(animate);
+    }
+
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        resizeCanvas();
+      }, 100);
+    });
+
+    initParticles();
+    animate();
+  });
+</script>
 
 </body>
 
